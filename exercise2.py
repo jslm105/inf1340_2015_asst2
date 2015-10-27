@@ -12,6 +12,7 @@ __copyright__ = "2015 Susan Sim"
 __license__ = "MIT License"
 
 
+
 def find(input_string, substring, start, end):
     """
     Describe your function
@@ -21,8 +22,16 @@ def find(input_string, substring, start, end):
     :raises:
 
     """
+    x=0
+    while x < :
+        if substring in input_string[x]:
+            print(x)
+        else:
+            x += 1
+
     return -1
 
+find("This is an example", "i", 0, 17)
 
 def multi_find(input_string, substring, start, end):
     """
