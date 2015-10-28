@@ -23,11 +23,9 @@ def find(input_string, substring, start, end):
 
     """
     x=0
-    while x < :
-        if substring in input_string[x]:
-            print(x)
-        else:
-            x += 1
+    for p in range(start,end):
+        if substring in input_string[p]:
+                print(p)
 
     return -1
 
