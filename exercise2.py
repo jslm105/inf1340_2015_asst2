@@ -21,15 +21,25 @@ def find(input_string, substring, start, end):
     :return:
     :raises:
 
+
+    In psuedo code:
+    Iterate through the input string.
+    If a letter matches the first letter of substring
+        then check if following input_string characters are the same as substring
+            print current point of iteration
+    else
+        return -1
     """
-    x=0
-    for p in range(start,end):
-        if substring in input_string[p]:
-                print(p)
+    for p in range(start, end):
+        if substring[0] in input_string[p]:
+            if substring[1:len(substring)] == input_string[p+1:p+len(substring)]:
+                print p
+            else:
+                return -1
 
-    return -1
 
-find("This is an example", "i", 0, 17)
+
+find("This is an example", "exaom", 0, 17)
 
 def multi_find(input_string, substring, start, end):
     """
