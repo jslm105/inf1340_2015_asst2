@@ -6,25 +6,26 @@ This module converts English words to Pig Latin words
 
 """
 
-__author__ = 'Susan Sim'
-__email__ = "ses@drsusansim.org"
-__copyright__ = "2015 Susan Sim"
+__author__ = 'Jessica Mallender & Jacob Miller'
+__email__ = ""
+__copyright__ = "2015 Mallender, Miller & Sim"
 __license__ = "MIT License"
 
 
 def pig_latinify(word):
     """
-    Describe your function
+    This function takes an English word and translates it into Pig Latin.
+    This version of Pig Latin is based off of the following rules:
+    -If the word starts with a vowel, append "yay" to the end of the word
+    -If the word starts with a consonant, every consonant up to the first
+     vowel is removed and appended to the end. Finally "ay" is appended to
+     the end as well.
 
     :param :
     :return:
     :raises:
 
     """
-    result = ""
-
-    return result
-
 
 vowels = ("aeiouAEIOU")
 consonants = ("bcdfghjklmnpqrstvwxyzBCDFGHJKLMNPQRSTVWXYZ")
@@ -37,7 +38,6 @@ def pig_latinify (word):
 
     if word[0] in vowels:
         result = word + latinify_vowel
-
 
     elif word[0] in consonants:
         for vowel_position in range(1, len(word)):
@@ -53,3 +53,12 @@ def pig_latinify (word):
 
 pig_latin_word = pig_latinify("science")
 print(pig_latin_word)
+
+
+
+#questions:
+#1) can we assume only lowercase
+#2) can we assume only one word
+#3) if there is a number or different character in word do we have to account for this
+# or assume that everything is ok
+# not value returning, does that matter?
