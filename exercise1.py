@@ -24,3 +24,32 @@ def pig_latinify(word):
     result = ""
 
     return result
+
+
+vowels = ("aeiouAEIOU")
+consonants = ("bcdfghjklmnpqrstvwxyzBCDFGHJKLMNPQRSTVWXYZ")
+latinify_vowel = "yay"
+latinify_consonants = "ay"
+
+
+def pig_latinify (word):
+    result = ""
+
+    if word[0] in vowels:
+        result = word + latinify_vowel
+
+
+    elif word[0] in consonants:
+        for vowel_position in range(1, len(word)):
+            if word[vowel_position] in vowels:
+                result = (word[vowel_position:] + word[:vowel_position] + latinify_consonants)
+                break
+    else:
+        result = ("Invalid character")
+
+    return result
+
+
+
+pig_latin_word = pig_latinify("science")
+print(pig_latin_word)
