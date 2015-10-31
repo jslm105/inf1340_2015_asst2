@@ -48,8 +48,13 @@ def union():
     """
 
     # Check that schema has same number of columns
+    table1_columns = len(table1[0][:])
     if len(table1[0][:]) == len(table2[0][:]):
         print ("It works!")
+
+        for same_schema in range(table1_columns):
+            if table1[0][same_schema] == table2[0][same_schema]:
+                print ("It works again!")
     print table1
     print len(table1[0][:])
 

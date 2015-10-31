@@ -35,11 +35,11 @@ def find(input_string, substring, start, end):
             if substring[1:len(substring)] == input_string[p+1:p+len(substring)]:
                 print p
             else:
-                return -1
+                print -1
 
 
 
-find("This is an example", "exaom", 0, 17)
+find("This is an example", "is", 0, 17)
 
 def multi_find(input_string, substring, start, end):
     """

@@ -6,7 +6,7 @@ This module converts English words to Pig Latin words
 
 """
 
-__author__ = 'Jessica Mallender & Jacob Miller'
+__author__ = 'Jessica Mallender & Jake Miller'
 __email__ = ""
 __copyright__ = "2015 Mallender, Miller & Sim"
 __license__ = "MIT License"
