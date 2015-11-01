@@ -22,6 +22,8 @@ table2 =    [["Number", "Surname", "Age"],
             [7432, "O'Malley", 39],
             [9824, "Darkes", 38]]
 
+table3 = table1 + table2
+
 def union():
     """
     Perform the union set operation on tables, table1 and table2.
@@ -50,16 +52,26 @@ def union():
     # Check that schema has same number of columns
     table1_columns = len(table1[0][:])
     if len(table1[0][:]) == len(table2[0][:]):
-        print ("It works!")
+        print ("The tables have the same number of columns")
 
         for same_schema in range(table1_columns):
             if table1[0][same_schema] == table2[0][same_schema]:
-                print ("It works again!")
-    print table1
-    print len(table1[0][:])
+                print ("The column values are equal")
 
+                #This unionizes table 1 and 2...need to take out duplicate line with helper function below
+                # and clean up a bit
+                index = 0
+                for data_set in table3:
+                    union = table3[index][:]
+                    print(union)
+                    index += 1
+                break
+            else:
+                print("The column values are not equal...MismatchedAttributesException")
+                break
 
-
+    #print table1
+    #print len(table1[0][:])
 
 
     return []
