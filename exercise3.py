@@ -58,7 +58,7 @@ def union():
             if table1[0][same_schema] == table2[0][same_schema]:
                 print ("The column values are equal")
 
-                #This utilizies the remove duplicate function below, need to change it to just calling the function
+                #This utilizes the remove duplicate function below, need to change it to just calling the function
                 #I believe this is the expected output for the union of Graduate and Managers table
                 d = {}
                 result = []
@@ -87,9 +87,18 @@ union()
 
 def intersection(table1, table2):
     """
-    Describe your function
+    Perform the intersection set operation on tables, table1 and table2.
+
+    Checks all rows found in the first table against lists(rows) in the second table
+     -If the same row if found in both table1 and table2, display it
+     -If a row in found only in one table and not the other, do not display it
 
     """
+    #Displays the rows that are in both table1 and table2.
+    for row in table1:
+        if row in table1 and row in table2:
+            print(row)
+
     return []
 
 
