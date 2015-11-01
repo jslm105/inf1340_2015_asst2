@@ -58,13 +58,21 @@ def union():
             if table1[0][same_schema] == table2[0][same_schema]:
                 print ("The column values are equal")
 
-                #This unionizes table 1 and 2...need to take out duplicate line with helper function below
-                # and clean up a bit
-                index = 0
-                for data_set in table3:
-                    union = table3[index][:]
-                    print(union)
-                    index += 1
+                #This utilizies the remove duplicate function below, need to change it to just calling the function
+                #I believe this is the expected output for the union of Graduate and Managers table
+                d = {}
+                result = []
+                for row in table3:
+                    if tuple(row) not in d:
+                        result.append(row)
+                        d[tuple(row)] = True
+                        break
+                        index = 0
+                        for data_set in table3:
+                            union = table3[index][:]
+                            print(union)
+                            index += 1
+                            break
                 break
             else:
                 print("The column values are not equal...MismatchedAttributesException")
@@ -110,13 +118,13 @@ def remove_duplicates():
             [7432, "O'Malley", 39]]
     d = {}
     result = []
-    for row in listy:
+    for row in table3:
         if tuple(row) not in d:
             result.append(row)
             d[tuple(row)] = True
 
     print result
-#remove_duplicates()
+remove_duplicates()
 
 class MismatchedAttributesException(Exception):
     """
