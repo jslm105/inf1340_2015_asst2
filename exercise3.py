@@ -90,23 +90,38 @@ def intersection(table1, table2):
     Perform the intersection set operation on tables, table1 and table2.
 
     Checks all rows found in the first table against lists(rows) in the second table
-     -If the same row if found in both table1 and table2, display it
-     -If a row in found only in one table and not the other, do not display it
+     -If the same row if found in both table1 and table2, it is displayed in the new intersection table
+     -If a row in found only in one table and not the other, do not add it to the new table
 
     """
     #Displays the rows that are in both table1 and table2.
+
+    intersection_table = []
     for row in table1:
         if row in table1 and row in table2:
-            print(row)
+            intersection_table.append(row)
+    print(intersection_table)
 
     return []
 
 
 def difference(table1, table2):
     """
-    Describe your function
+    Perform the difference set operation on tables, table1 and table2.
+
+    Checks all rows in table1 against rows in table2
+     - If a row in table1 is not in table2, the row is displayed in the new difference table
+     -If a row is in both tables do not add it to the new table
+
 
     """
+
+    difference_table= []
+    for row in table1:
+        if row not in table2:
+            difference_table.append(row)
+    print(difference_table)
+
     return []
 
 
