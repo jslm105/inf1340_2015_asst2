@@ -24,7 +24,7 @@ table2 =    [["Number", "Surname", "Age"],
 
 table3 = table1 + table2
 
-def union():
+def union(table1, table2):
     """
     Perform the union set operation on tables, table1 and table2.
 
@@ -52,16 +52,17 @@ def union():
     # Check that schema has same number of columns
     table1_columns = len(table1[0][:])
     if len(table1[0][:]) == len(table2[0][:]):
-        print ("The tables have the same number of columns")
+
 
         for same_schema in range(table1_columns):
             if table1[0][same_schema] == table2[0][same_schema]:
-                print ("The column values are equal")
+
 
                 #This utilizes the remove duplicate function below, need to change it to just calling the function
                 #I believe this is the expected output for the union of Graduate and Managers table
                 d = {}
                 result = []
+                table3 =table1 + table2
                 for row in table3:
                     if tuple(row) not in d:
                         result.append(row)
@@ -82,8 +83,8 @@ def union():
     #print len(table1[0][:])
 
 
-    return []
-union()
+    return table3
+#union()
 
 def intersection(table1, table2):
     """
@@ -116,13 +117,13 @@ def difference(table1, table2):
 
     """
 
-    difference_table= []
+    difference_table= [table1[0]]
     for row in table1:
         if row not in table2:
             difference_table.append(row)
     print(difference_table)
 
-    return []
+    return [difference_table]
 
 
 #####################
