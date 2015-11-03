@@ -20,7 +20,7 @@ table2 =    [["Number", "Surname", "Age"],
             [7432, "O'Malley", 39],
             [9824, "Darkes", 38]]
 
-table3 = table1 + table2
+table3 = table1 + table2 
 
 def schema_check (table1, table2):
     """ This function checks the two tables to make sure that both table schemas
