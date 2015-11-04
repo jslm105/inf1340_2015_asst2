@@ -44,6 +44,17 @@ def remove_duplicates(l):
     return result
 #remove_duplicates()
 
+def check_schema(table1, table2):
+    if len(table1[0]) == len(table2[0]):
+        # Check that schema has same categories
+        if table1[0] == table2[0]:
+            return True
+        else:
+            raise MismatchedAttributesException
+    else:
+        raise MismatchedAttributesException
+    #Remove all duplicates leaving one complete table
+
 def union(table1, table2):
     """
     Perform the union set operation on tables, table1 and table2.
@@ -52,15 +63,9 @@ def union(table1, table2):
     :return: the resulting table
     :raises: MismatchedAttributesException:
     """
-    # Check that schema has same number of columns
-    if len(table1[0]) == len(table2[0]):
-        # Check that schema has same categories
-        if table1[0] == table2[0]:
-                #Create table of containing both tables
+    if check_schema(table1, table2) == True:
 
                 table3 = table1 + table2
-        else:
-            raise MismatchedAttributesException
     else:
         raise MismatchedAttributesException
     #Remove all duplicates leaving one complete table
@@ -79,14 +84,15 @@ def intersection(table1, table2):
 
     """
     #Displays the rows that are in both table1 and table2.
+    if check_schema(table1, table2) == True:
+        intersection_table = []
+        for row in table1:
+            if row in table1 and row in table2:
+                intersection_table.append(row)
 
-    intersection_table = []
-    for row in table1:
-        if row in table1 and row in table2:
-            intersection_table.append(row)
-
-    return intersection_table
-
+        return intersection_table
+    else:
+        raise MismatchedAttributesException
 
 def difference(table1, table2):
     """
@@ -98,14 +104,15 @@ def difference(table1, table2):
 
 
     """
+    if check_schema(table1, table2) == True:
+        difference_table= [table1[0]]
+        for row in table1:
+            if row not in table2:
+                difference_table.append(row)
 
-    difference_table= [table1[0]]
-    for row in table1:
-        if row not in table2:
-            difference_table.append(row)
-
-    return difference_table
-
+        return difference_table
+    else:
+        raise MismatchedAttributesException
 
 
 
