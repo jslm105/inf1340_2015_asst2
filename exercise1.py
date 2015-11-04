@@ -25,7 +25,7 @@ def pig_latinify(word):
     :return: word translated into Piglatin (string)
     :raises:
 
-    """
+    """ 
 
 vowels = ("aeiouAEIOU")
 consonants = ("bcdfghjklmnpqrstvwxyzBCDFGHJKLMNPQRSTVWXYZ")
