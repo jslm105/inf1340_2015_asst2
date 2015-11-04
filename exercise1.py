@@ -21,8 +21,8 @@ def pig_latinify(word):
      vowel is removed and appended to the end. Finally "ay" is appended to
      the end as well.
 
-    :param :
-    :return:
+    :param : word: an English word(string)
+    :return: word translated into Piglatin (string)
     :raises:
 
     """
@@ -44,14 +44,17 @@ def pig_latinify (word):
             if word[vowel_position] in vowels:
                 result = (word[vowel_position:] + word[:vowel_position] + latinify_consonants)
                 break
+            else:
+                result = word + latinify_consonants
+
     else:
-        result = ("Invalid character")
+        result = word
 
     return result
 
 
 
-pig_latin_word = pig_latinify("science")
+pig_latin_word = pig_latinify("9987897")
 print(pig_latin_word)
 
 
@@ -61,4 +64,3 @@ print(pig_latin_word)
 #2) can we assume only one word
 #3) if there is a number or different character in word do we have to account for this
 # or assume that everything is ok
-# not value returning, does that matter?

@@ -23,5 +23,11 @@ def test_basic():
     assert pig_latinify("scratch") == "atchscray"
     assert pig_latinify("is") == "isyay"
     assert pig_latinify("apple") == "appleyay"
+    #mine
+    assert pig_latinify("why") == "whyay"
 
+#add test cases that test for
+#  1) capitalization, 2)numbers or other characters  3) no vowels in word
 
+#no-vowel
+#no_string
