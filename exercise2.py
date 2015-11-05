@@ -38,10 +38,10 @@ def find(input_string, substring, start, end):
             result.append(char)
     # If substring not found
     if not result:
-        print -1
+        return -1
     # Return only first instance
     else:
-        print result[0]
+        return result[0]
 
 
 def multi_find(input_string, substring, start, end):

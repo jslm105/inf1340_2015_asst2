@@ -83,6 +83,30 @@ def test_difference():
     assert is_equal(result, difference(GRADUATES, MANAGERS))
 
 
+def test_remove_duplicates():
+    """
+    Test duplicates are removal.
+    """
+    result_union = [[7274, "Robinson", 37],
+                    [7432, "O'Malley", 39],
+                    [9297, "O'Malley", 56],
+                    [9824, "Darkes", 38],
+                    ["Number", "Surname", "Age"]]
+
+    result_intersection = [[7432, "O'Malley", 39],
+                           [9824, "Darkes", 38],
+                           ["Number", "Surname", "Age"]]
+
+    result_difference = [[7274, "Robinson", 37],
+                         ["Number", "Surname", "Age"]]
+
+    assert result_union == sorted(union(GRADUATES, MANAGERS))
+
+    assert result_intersection == sorted(intersection(GRADUATES, MANAGERS))
+
+    assert result_difference == sorted(difference(GRADUATES, MANAGERS))
+
+
 ##########################
 # SCHEMA CHECK FUNCTION ##
 ##########################
