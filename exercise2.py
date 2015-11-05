@@ -31,16 +31,22 @@ def find(input_string, substring, start, end):
     else
         return -1
     """
+    # Iterate through input string
     for p in range(start, end):
+        # Find first letter of substring
         if substring[0] in input_string[p]:
+            # Confirm remainder of substring follows in input string
             if substring[1:len(substring)] == input_string[p+1:p+len(substring)]:
-                print p
+                return p
+                # Stop the loop at first instance
+                break
             else:
-                print -1
+                return -1
 
 
 
-find("This is an example", "is", 0, 17)
+#find("This is an ex-parrot", "parrot", 0, 20)
+
 
 def multi_find(input_string, substring, start, end):
     """
@@ -52,6 +58,17 @@ def multi_find(input_string, substring, start, end):
 
     """
     result = ""
+    # Iterate through input string
+    for char in range(start, end):
+        # Find first letter of substring
+        if substring[0] in input_string[char]:
+            # Confirm remainder of substring follows in input string
+            if substring[1:len(substring)] == input_string[char+1:char+len(substring)]:
+                # Compile into a string separated by commas
+                result = result + "," + str(char)
 
-    return result
-
+            else:
+                return result
+    # Return string without first comma
+    return result[1:]
+#multi_find("Ni! Ni! Ni! Ni!", "Ni", 0, 14)
