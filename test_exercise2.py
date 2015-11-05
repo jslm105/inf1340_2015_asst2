@@ -20,10 +20,11 @@ def test_find_basic():
     Test find function.
     """
     assert find("This is an ex-parrot", "parrot", 0, 20) == 14
+    assert find("I'm a lumberjack and I'm OK", "parrot", 0, 26) == -1
 
 
 def test_multi_find_basic():
     """
     Test multi_find function.
     """
-    assert multi_find("Ni! Ni! Ni! Ni!", "Ni", 0, 20) == "0,4,8,12"
+    assert multi_find("Ni! Ni! Ni! Ni!", "Ni", 0, 14) == "0,4,8,12"

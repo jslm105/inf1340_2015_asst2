@@ -31,17 +31,16 @@ def find(input_string, substring, start, end):
     else
         return -1
     """
+    result = []
     # Iterate through input string
-    for p in range(start, end):
-        # Find first letter of substring
-        if substring[0] in input_string[p]:
-            # Confirm remainder of substring follows in input string
-            if substring[1:len(substring)] == input_string[p+1:p+len(substring)]:
-                return p
-                # Stop the loop at first instance
-                break
-            else:
-                return -1
+    for char in range(start, end):
+        # Find instances of substring
+        if substring[0:len(substring)] in input_string[char:char + len(substring)]:
+            result.append(char)
+    if result == []:
+        return -1
+    else:
+        return result[0]
 
 
 
