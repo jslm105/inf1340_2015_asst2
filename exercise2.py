@@ -14,20 +14,13 @@ __license__ = "MIT License"
 
 def find(input_string, substring, start, end):
     """
-    Describe your function
+    Find the index position of the first instance of the substring in input_string.
 
-    :param :
-    :return:
-    :raises:
-
-
-    In psuedo code:
-    Iterate through the input string.
-    If a letter matches the first letter of substring
-        then check if following input_string characters are the same as substring
-            print current point of iteration
-    else
-        return -1
+    :param : input_string: a long string
+    :param : substring: a short string
+    :param : start: first index position of input_string
+    :param : end: last index position of input_string
+    :return: index position, -1 if not found
     """
     result = []
     # Iterate through input string
@@ -46,12 +39,13 @@ def find(input_string, substring, start, end):
 
 def multi_find(input_string, substring, start, end):
     """
-    Describe your function
+    Find all index positions of the substring in input_string.
 
-    :param :
-    :return:
-    :raises:
-
+    :param : input_string: a long string
+    :param : substring: a short string
+    :param : start: first index position of input_string
+    :param : end: last index position of input_string
+    :return: index position(s), empty string if not found
     """
     result = ""
     # Iterate through input string
@@ -62,4 +56,3 @@ def multi_find(input_string, substring, start, end):
             result = result + "," + str(char)
     # Return string without first comma
     return result[1:]
-# multi_find("Ni! Ni! Ni! Ni!", "Ni", 0, 14)
