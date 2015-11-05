@@ -7,11 +7,9 @@ This module converts performs substring matching for DNA sequencing
 """
 
 __author__ = 'Jessica Mallender, Jake Miller & Susan Sim'
-__email__ = "jessica.mallender@mail.utoronto.ca, jacob.miller@mail.utoronto.ca, ses@drsusansim.org"
+__email__ = "jessica.mallender@mail.utoronto.ca, jake.miller@mail.utoronto.ca, ses@drsusansim.org"
 __copyright__ = "2015 Mallender, Miller & Sim"
 __license__ = "MIT License"
-
-
 
 
 def find(input_string, substring, start, end):
@@ -36,15 +34,14 @@ def find(input_string, substring, start, end):
     for char in range(start, end):
         # Find instances of substring
         if substring[0:len(substring)] in input_string[char:char + len(substring)]:
+            # Add to list if instance found
             result.append(char)
-    if result == []:
-        return -1
+    # If substring not found
+    if not result:
+        print -1
+    # Return only first instance
     else:
-        return result[0]
-
-
-
-#find("This is an ex-parrot", "parrot", 0, 20)
+        print result[0]
 
 
 def multi_find(input_string, substring, start, end):
@@ -59,15 +56,10 @@ def multi_find(input_string, substring, start, end):
     result = ""
     # Iterate through input string
     for char in range(start, end):
-        # Find first letter of substring
-        if substring[0] in input_string[char]:
-            # Confirm remainder of substring follows in input string
-            if substring[1:len(substring)] == input_string[char+1:char+len(substring)]:
-                # Compile into a string separated by commas
-                result = result + "," + str(char)
-
-            else:
-                return result
+        # Find instances of substring
+        if substring[0:len(substring)] in input_string[char:char + len(substring)]:
+            # Compile into a string separated by commas
+            result = result + "," + str(char)
     # Return string without first comma
     return result[1:]
-#multi_find("Ni! Ni! Ni! Ni!", "Ni", 0, 14)
+# multi_find("Ni! Ni! Ni! Ni!", "Ni", 0, 14)

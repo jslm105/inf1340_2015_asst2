@@ -8,22 +8,10 @@ implemented as lists of lists.
 """
 
 __author__ = 'Jessica Mallender, Jake Miller & Susan Sim'
-__email__ = "jessica.mallender@mail.utoronto.ca, jacob.miller@mail.utoronto.ca, ses@drsusansim.org"
+__email__ = "jessica.mallender@mail.utoronto.ca, jake.miller@mail.utoronto.ca, ses@drsusansim.org"
 __copyright__ = "2015 Mallender, Miller & Sim"
 __license__ = "MIT License"
 
-
-table1 =     [["Number", "Surname", "Age"],
-             [7274, "Robinson", 37],
-             [7432, "O'Malley", 39],
-             [9824, "Darkes", 38]]
-
-table2 =    [["Numbber", "Surname", "Age"],
-            [9297, "O'Malley", 56],
-            [7432, "O'Malley", 39],
-            [9824, "Darkes", 38]]
-
-table3 = table1 + table2
 
 #####################
 # HELPER FUNCTIONS ##
@@ -43,7 +31,7 @@ def remove_duplicates(l):
             d[tuple(row)] = True
 
     return result
-#remove_duplicates()
+# remove_duplicates()
 
 
 def check_schema(table1, table2):
@@ -66,7 +54,7 @@ def union(table1, table2):
     :return: the resulting table
     :raises: MismatchedAttributesException:
     """
-    if check_schema(table1, table2) == True:
+    if check_schema(table1, table2):
 
                 table3 = table1 + table2
     else:
@@ -74,8 +62,6 @@ def union(table1, table2):
     # Remove all duplicates leaving one complete table
     table3 = remove_duplicates(table3)
     return table3
-
-#union(table1, table2)
 
 
 def intersection(table1, table2):
@@ -88,7 +74,7 @@ def intersection(table1, table2):
 
     """
     # Displays the rows that are in both table1 and table2.
-    if check_schema(table1, table2) == True:
+    if check_schema(table1, table2):
         intersection_table = []
         for row in table1:
             if row in table1 and row in table2:
@@ -108,8 +94,8 @@ def difference(table1, table2):
      -If a row is in both tables do not add it to the new table
 
     """
-    if check_schema(table1, table2) == True:
-        difference_table= [table1[0]]
+    if check_schema(table1, table2):
+        difference_table = [table1[0]]
         for row in table1:
             if row not in table2:
                 difference_table.append(row)
@@ -125,4 +111,3 @@ class MismatchedAttributesException(Exception):
     don't have the same attributes.
     """
     pass
-

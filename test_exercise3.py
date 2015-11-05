@@ -4,13 +4,12 @@
 Test module for exercise3.py
 """
 
+from exercise3 import union, intersection, difference, check_schema, MismatchedAttributesException
+
 __author__ = 'Jessica Mallender, Jake Miller & Susan Sim'
-__email__ = "jessica.mallender@mail.utoronto.ca, jacob.miller@mail.utoronto.ca, ses@drsusansim.org"
+__email__ = "jessica.mallender@mail.utoronto.ca, jake.miller@mail.utoronto.ca, ses@drsusansim.org"
 __copyright__ = "2015 Mallender, Miller & Sim"
 __license__ = "MIT License"
-
-
-from exercise3 import union, intersection, difference, check_schema, MismatchedAttributesException
 
 
 ###########
@@ -27,14 +26,14 @@ MANAGERS = [["Number", "Surname", "Age"],
             [9824, "Darkes", 38]]
 
 STUDENTS = [["Number", "Surname", "Age", "Degree"],
-             [7274, "Robinson", 37, "MI"],
-             [7432, "O'Malley", 39, "MI"],
-             [9824, "Darkes", 38, "MI"]]
+            [7274, "Robinson", 37, "MI"],
+            [7432, "O'Malley", 39, "MI"],
+            [9824, "Darkes", 38, "MI"]]
 
 PROFESSORS = [["ID Number", "Surname", "Age"],
-            [9297, "O'Malley", 56],
-            [7432, "O'Malley", 39],
-            [9824, "Darkes", 38]]
+              [9297, "O'Malley", 56],
+              [7432, "O'Malley", 39],
+              [9824, "Darkes", 38]]
 
 
 #####################
@@ -42,7 +41,6 @@ PROFESSORS = [["ID Number", "Surname", "Age"],
 #####################
 def is_equal(t1, t2):
     return set(map(tuple, t1)) == set(map(tuple, t2))
-
 
 
 ###################
@@ -94,7 +92,6 @@ def test_schema_check_():
     Tests to make sure that our check_schema helper function raises the
     MismatchedAttributesException if the two tables column numbers or
     values are different
-
     """
     # Tables have different number of columns
     try:
@@ -119,13 +116,3 @@ def test_schema_check_():
         assert True
     else:
         assert False
-
-
-
-
-
-
-
-
-
-

@@ -7,7 +7,7 @@ This module converts English words to Pig Latin words
 """
 
 __author__ = 'Jessica Mallender, Jake Miller & Susan Sim'
-__email__ = "jessica.mallender@mail.utoronto.ca, jacob.miller@mail.utoronto.ca, ses@drsusansim.org"
+__email__ = "jessica.mallender@mail.utoronto.ca, jake.miller@mail.utoronto.ca, ses@drsusansim.org"
 __copyright__ = "2015 Mallender, Miller & Sim"
 __license__ = "MIT License"
 
@@ -16,6 +16,7 @@ vowels = "aeiouAEIOU"
 consonants = "bcdfghjklmnpqrstvwxyzBCDFGHJKLMNPQRSTVWXYZ"
 latinify_vowel = "yay"
 latinify_consonant = "ay"
+
 
 def pig_latinify(word):
     """
