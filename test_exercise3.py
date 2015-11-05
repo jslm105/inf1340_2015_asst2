@@ -39,6 +39,7 @@ PROFESSORS = [["ID Number", "Surname", "Age"],
 #####################
 # HELPER FUNCTIONS ##
 #####################
+
 def is_equal(t1, t2):
     return set(map(tuple, t1)) == set(map(tuple, t2))
 
@@ -71,6 +72,8 @@ def test_intersection():
 
     assert is_equal(result, intersection(GRADUATES, MANAGERS))
 
+    assert result == intersection(GRADUATES, MANAGERS)
+
 
 def test_difference():
     """
@@ -82,6 +85,12 @@ def test_difference():
 
     assert is_equal(result, difference(GRADUATES, MANAGERS))
 
+    assert result == difference(GRADUATES, MANAGERS)
+
+
+#####################
+# REMOVE DUPLICATES##
+#####################
 
 def test_remove_duplicates():
     """
@@ -101,9 +110,7 @@ def test_remove_duplicates():
                          ["Number", "Surname", "Age"]]
 
     assert result_union == sorted(union(GRADUATES, MANAGERS))
-
     assert result_intersection == sorted(intersection(GRADUATES, MANAGERS))
-
     assert result_difference == sorted(difference(GRADUATES, MANAGERS))
 
 
