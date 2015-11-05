@@ -72,8 +72,6 @@ def test_intersection():
 
     assert is_equal(result, intersection(GRADUATES, MANAGERS))
 
-    assert result == intersection(GRADUATES, MANAGERS)
-
 
 def test_difference():
     """
@@ -84,8 +82,6 @@ def test_difference():
               [7274, "Robinson", 37]]
 
     assert is_equal(result, difference(GRADUATES, MANAGERS))
-
-    assert result == difference(GRADUATES, MANAGERS)
 
 
 #####################
@@ -118,7 +114,7 @@ def test_remove_duplicates():
 # SCHEMA CHECK FUNCTION ##
 ##########################
 
-def test_schema_check_():
+def test_schema_check():
     """
     Tests to make sure that our check_schema helper function raises the
     MismatchedAttributesException if the two tables column numbers or
@@ -147,3 +143,113 @@ def test_schema_check_():
         assert True
     else:
         assert False
+
+#######################
+# NEGATIVE TEST CASES##
+#######################
+
+# Negative test cases for union function
+
+
+def test_union_negative():
+    """
+    Tests to make sure that our union function raises the
+    MismatchedAttributesException if the two tables column numbers or
+    values are different
+    """
+    # Tables have different number of columns
+    try:
+        union(GRADUATES, STUDENTS)
+    except MismatchedAttributesException:
+        assert True
+    else:
+        assert False
+
+    # Tables have different column values
+    try:
+        union(GRADUATES, PROFESSORS)
+    except MismatchedAttributesException:
+        assert True
+    else:
+        assert False
+
+    # Tables have different number of columns and values
+    try:
+        union(PROFESSORS, STUDENTS)
+    except MismatchedAttributesException:
+        assert True
+    else:
+        assert False
+
+# Negative test cases for intersection function
+
+
+def test_intersection_negative():
+    """
+    Tests to make sure that our intersection function raises the
+    MismatchedAttributesException if the two tables column numbers or
+    values are different
+    """
+    # Tables have different number of columns
+    try:
+        union(GRADUATES, STUDENTS)
+    except MismatchedAttributesException:
+        assert True
+    else:
+        assert False
+
+    # Tables have different column values
+    try:
+        union(GRADUATES, PROFESSORS)
+    except MismatchedAttributesException:
+        assert True
+    else:
+        assert False
+
+    # Tables have different number of columns and values
+    try:
+        union(PROFESSORS, STUDENTS)
+    except MismatchedAttributesException:
+        assert True
+    else:
+        assert False
+
+# Negative test cases for difference function
+
+
+def test_difference_negative():
+    """
+    Tests to make sure that our difference function raises the
+    MismatchedAttributesException if the two tables column numbers or
+    values are different
+    """
+    # Tables have different number of columns
+    try:
+        union(GRADUATES, STUDENTS)
+    except MismatchedAttributesException:
+        assert True
+    else:
+        assert False
+
+    # Tables have different column values
+    try:
+        union(GRADUATES, PROFESSORS)
+    except MismatchedAttributesException:
+        assert True
+    else:
+        assert False
+
+    # Tables have different number of columns and values
+    try:
+        union(PROFESSORS, STUDENTS)
+    except MismatchedAttributesException:
+        assert True
+    else:
+        assert False
+
+
+
+
+
+
+
