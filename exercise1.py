@@ -26,13 +26,14 @@ def pig_latinify(word):
     -If the word starts with a consonant, every consonant up to the first
      vowel is removed and appended to the end. Finally "ay" is appended to
      the end as well.
+    -Non- English arguments are returned in its as-is form
 
     :param : word: an English word (string)
-    :return: word translated into Pig Latin (string)
+    :return: English word translated into Pig Latin (string) or non-English argument returned as entered
 
     """ 
 
-    result = ""
+    result = " "
 
     # Piglainifys word that starts with a vowel
     if word[0] in vowels:
@@ -53,8 +54,5 @@ def pig_latinify(word):
 
     return result
 
-pig_latin_word = pig_latinify("science")
+pig_latin_word = pig_latinify("Science")
 print(pig_latin_word)
-
-
-
