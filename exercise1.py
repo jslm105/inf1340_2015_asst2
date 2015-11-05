@@ -6,11 +6,16 @@ This module converts English words to Pig Latin words
 
 """
 
-__author__ = 'Jessica Mallender & Jake Miller'
-__email__ = ""
+__author__ = 'Jessica Mallender, Jake Miller & Susan Sim'
+__email__ = "jessica.mallender@mail.utoronto.ca, jacob.miller@mail.utoronto.ca, ses@drsusansim.org"
 __copyright__ = "2015 Mallender, Miller & Sim"
 __license__ = "MIT License"
 
+
+vowels = "aeiouAEIOU"
+consonants = "bcdfghjklmnpqrstvwxyzBCDFGHJKLMNPQRSTVWXYZ"
+latinify_vowel = "yay"
+latinify_consonant = "ay"
 
 def pig_latinify(word):
     """
@@ -21,46 +26,34 @@ def pig_latinify(word):
      vowel is removed and appended to the end. Finally "ay" is appended to
      the end as well.
 
-    :param : word: an English word(string)
-    :return: word translated into Piglatin (string)
-    :raises:
+    :param : word: an English word (string)
+    :return: word translated into Pig Latin (string)
 
     """ 
 
-vowels = ("aeiouAEIOU")
-consonants = ("bcdfghjklmnpqrstvwxyzBCDFGHJKLMNPQRSTVWXYZ")
-latinify_vowel = "yay"
-latinify_consonants = "ay"
-
-
-def pig_latinify (word):
     result = ""
 
+    # Piglainifys word that starts with a vowel
     if word[0] in vowels:
         result = word + latinify_vowel
 
+    # Piglatinfys a word that starts with a consonant
     elif word[0] in consonants:
         for vowel_position in range(1, len(word)):
             if word[vowel_position] in vowels:
-                result = (word[vowel_position:] + word[:vowel_position] + latinify_consonants)
+                result = (word[vowel_position:] + word[:vowel_position] + latinify_consonant)
                 break
             else:
-                result = word + latinify_consonants
+                result = word + latinify_consonant
 
+    # Returns the word if it is not a standard English word
     else:
         result = word
 
     return result
 
-
-
-pig_latin_word = pig_latinify("9987897")
+pig_latin_word = pig_latinify("science")
 print(pig_latin_word)
 
 
 
-#questions:
-#1) can we assume only lowercase
-#2) can we assume only one word
-#3) if there is a number or different character in word do we have to account for this
-# or assume that everything is ok

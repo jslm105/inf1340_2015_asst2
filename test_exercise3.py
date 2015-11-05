@@ -6,10 +6,11 @@ Test module for exercise3.py
 
 """
 
-__author__ = 'Susan Sim'
-__email__ = "ses@drsusansim.org"
-__copyright__ = "2015 Susan Sim"
+__author__ = 'Jessica Mallender, Jake Miller & Susan Sim'
+__email__ = "jessica.mallender@mail.utoronto.ca, jacob.miller@mail.utoronto.ca, ses@drsusansim.org"
+__copyright__ = "2015 Mallender, Miller & Sim"
 __license__ = "MIT License"
+
 
 from exercise3 import union, intersection, difference
 
@@ -34,6 +35,14 @@ MANAGERS = [["Number", "Surname", "Age"],
 def is_equal(t1, t2):
     return set(map(tuple, t1)) == set(map(tuple, t2))
 
+
+def test_schema_check():
+    """
+    Test the schema_check function
+
+    """
+
+    assert len(GRADUATES[0]) == len(MANAGERS[0]) and GRADUATES[0] == MANAGERS[0]
 
 ###################
 # TEST FUNCTIONS ##
@@ -72,3 +81,9 @@ def test_difference():
               [7274, "Robinson", 37]]
 
     assert is_equal(result, difference(GRADUATES, MANAGERS))
+
+
+
+
+
+

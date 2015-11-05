@@ -7,10 +7,11 @@ implemented as lists of lists.
 
 """
 
-__author__ = 'Susan Sim'
-__email__ = "ses@drsusansim.org"
-__copyright__ = "2015 Susan Sim"
+__author__ = 'Jessica Mallender, Jake Miller & Susan Sim'
+__email__ = "jessica.mallender@mail.utoronto.ca, jacob.miller@mail.utoronto.ca, ses@drsusansim.org"
+__copyright__ = "2015 Mallender, Miller & Sim"
 __license__ = "MIT License"
+
 
 table1 =     [["Number", "Surname", "Age"],
              [7274, "Robinson", 37],
