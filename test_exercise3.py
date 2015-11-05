@@ -1,9 +1,7 @@
 #!/usr/bin/env python
 
 """ Assignment 2, Exercise 3, INF1340, Fall, 2015. DBMS
-
 Test module for exercise3.py
-
 """
 
 __author__ = 'Jessica Mallender, Jake Miller & Susan Sim'
@@ -12,7 +10,7 @@ __copyright__ = "2015 Mallender, Miller & Sim"
 __license__ = "MIT License"
 
 
-from exercise3 import union, intersection, difference
+from exercise3 import union, intersection, difference, check_schema, MismatchedAttributesException
 
 
 ###########
@@ -28,6 +26,16 @@ MANAGERS = [["Number", "Surname", "Age"],
             [7432, "O'Malley", 39],
             [9824, "Darkes", 38]]
 
+STUDENTS = [["Number", "Surname", "Age", "Degree"],
+             [7274, "Robinson", 37, "MI"],
+             [7432, "O'Malley", 39, "MI"],
+             [9824, "Darkes", 38, "MI"]]
+
+PROFESSORS = [["ID Number", "Surname", "Age"],
+            [9297, "O'Malley", 56],
+            [7432, "O'Malley", 39],
+            [9824, "Darkes", 38]]
+
 
 #####################
 # HELPER FUNCTIONS ##
@@ -36,17 +44,11 @@ def is_equal(t1, t2):
     return set(map(tuple, t1)) == set(map(tuple, t2))
 
 
-def test_schema_check():
-    """
-    Test the schema_check function
-
-    """
-
-    assert len(GRADUATES[0]) == len(MANAGERS[0]) and GRADUATES[0] == MANAGERS[0]
 
 ###################
 # TEST FUNCTIONS ##
 ###################
+
 def test_union():
     """
     Test union operation.
@@ -81,6 +83,46 @@ def test_difference():
               [7274, "Robinson", 37]]
 
     assert is_equal(result, difference(GRADUATES, MANAGERS))
+
+
+##########################
+# SCHEMA CHECK FUNCTION ##
+##########################
+
+def test_schema_check_():
+    """
+    Tests to make sure that our check_schema helper function raises the
+    MismatchedAttributesException if the two tables column numbers or
+    values are different
+
+    """
+    # Tables have different number of columns
+    try:
+        check_schema(GRADUATES, STUDENTS)
+    except MismatchedAttributesException:
+        assert True
+    else:
+        assert False
+
+    # Tables have different column values
+    try:
+        check_schema(GRADUATES, PROFESSORS)
+    except MismatchedAttributesException:
+        assert True
+    else:
+        assert False
+
+    # Tables have different number of columns and values
+    try:
+        check_schema(PROFESSORS, STUDENTS)
+    except MismatchedAttributesException:
+        assert True
+    else:
+        assert False
+
+
+
+
 
 
 

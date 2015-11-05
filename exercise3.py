@@ -18,7 +18,7 @@ table1 =     [["Number", "Surname", "Age"],
              [7432, "O'Malley", 39],
              [9824, "Darkes", 38]]
 
-table2 =    [["Number", "Surname", "Age"],
+table2 =    [["Numbber", "Surname", "Age"],
             [9297, "O'Malley", 56],
             [7432, "O'Malley", 39],
             [9824, "Darkes", 38]]
@@ -45,6 +45,7 @@ def remove_duplicates(l):
     return result
 #remove_duplicates()
 
+
 def check_schema(table1, table2):
     if len(table1[0]) == len(table2[0]):
         # Check that schema has same categories
@@ -54,7 +55,8 @@ def check_schema(table1, table2):
             raise MismatchedAttributesException
     else:
         raise MismatchedAttributesException
-    #Remove all duplicates leaving one complete table
+    # Remove all duplicates leaving one complete table
+
 
 def union(table1, table2):
     """
@@ -69,11 +71,12 @@ def union(table1, table2):
                 table3 = table1 + table2
     else:
         raise MismatchedAttributesException
-    #Remove all duplicates leaving one complete table
+    # Remove all duplicates leaving one complete table
     table3 = remove_duplicates(table3)
     return table3
 
 #union(table1, table2)
+
 
 def intersection(table1, table2):
     """
@@ -84,7 +87,7 @@ def intersection(table1, table2):
      -If a row in found only in one table and not the other, do not add it to the new table
 
     """
-    #Displays the rows that are in both table1 and table2.
+    # Displays the rows that are in both table1 and table2.
     if check_schema(table1, table2) == True:
         intersection_table = []
         for row in table1:
@@ -95,6 +98,7 @@ def intersection(table1, table2):
     else:
         raise MismatchedAttributesException
 
+
 def difference(table1, table2):
     """
     Perform the difference set operation on tables, table1 and table2.
@@ -102,7 +106,6 @@ def difference(table1, table2):
     Checks all rows in table1 against rows in table2
      - If a row in table1 is not in table2, the row is displayed in the new difference table
      -If a row is in both tables do not add it to the new table
-
 
     """
     if check_schema(table1, table2) == True:
@@ -114,7 +117,6 @@ def difference(table1, table2):
         return difference_table
     else:
         raise MismatchedAttributesException
-
 
 
 class MismatchedAttributesException(Exception):
