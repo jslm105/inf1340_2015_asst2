@@ -53,6 +53,3 @@ def pig_latinify(word):
         result = word
 
     return result
-
-pig_latin_word = pig_latinify("Science")
-print(pig_latin_word)

@@ -31,10 +31,16 @@ def remove_duplicates(l):
             d[tuple(row)] = True
 
     return result
-# remove_duplicates()
 
 
 def check_schema(table1, table2):
+    """
+    Confirms tables have identical schemas.
+    :param table1:
+    :param table2:
+    :return: True for tables with identical schema
+    :raises: MismatchedAttributesException
+    """
     if len(table1[0]) == len(table2[0]):
         # Check that schema has same categories
         if table1[0] == table2[0]:
@@ -71,7 +77,10 @@ def intersection(table1, table2):
     Checks all rows found in the first table against lists(rows) in the second table
      -If the same row if found in both table1 and table2, it is displayed in the new intersection table
      -If a row in found only in one table and not the other, do not add it to the new table
-
+    :param table1: a table (a List of Lists)
+    :param table2: a table (a List of Lists)
+    :return: the resulting table
+    :raises: MismatchedAttributesException:
     """
     # Displays the rows that are in both table1 and table2.
     if check_schema(table1, table2):
@@ -92,7 +101,10 @@ def difference(table1, table2):
     Checks all rows in table1 against rows in table2
      - If a row in table1 is not in table2, the row is displayed in the new difference table
      -If a row is in both tables do not add it to the new table
-
+    :param table1: a table (a List of Lists)
+    :param table2: a table (a List of Lists)
+    :return: the resulting table
+    :raises: MismatchedAttributesException:
     """
     if check_schema(table1, table2):
         difference_table = [table1[0]]

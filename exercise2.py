@@ -23,11 +23,10 @@ def find(input_string, substring, start, end):
     :return: index position, -1 if not found
     """
     result = []
-    # Iterate through input string
+
     for char in range(start, end):
         # Find instances of substring
         if substring[0:len(substring)] in input_string[char:char + len(substring)]:
-            # Add to list if instance found
             result.append(char)
     # If substring not found
     if not result:
@@ -48,7 +47,7 @@ def multi_find(input_string, substring, start, end):
     :return: index position(s), empty string if not found
     """
     result = ""
-    # Iterate through input string
+    
     for char in range(start, end):
         # Find instances of substring
         if substring[0:len(substring)] in input_string[char:char + len(substring)]:

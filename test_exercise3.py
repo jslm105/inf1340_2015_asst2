@@ -35,6 +35,11 @@ PROFESSORS = [["ID Number", "Surname", "Age"],
               [7432, "O'Malley", 39],
               [9824, "Darkes", 38]]
 
+INSTRUCTORS = [["ID Number", "Surname", "Age"],
+               [9297, "O'Malley", 56],
+               [7432, "O'Malley", 39],
+               [9824, "Darkes", 38]]
+
 
 #####################
 # HELPER FUNCTIONS ##
@@ -62,6 +67,18 @@ def test_union():
     assert is_equal(result, union(GRADUATES, MANAGERS))
 
 
+def test_union_none():
+    """
+    Test union operation on identical tables.
+    """
+    result = [["ID Number", "Surname", "Age"],
+              [9297, "O'Malley", 56],
+              [7432, "O'Malley", 39],
+              [9824, "Darkes", 38]]
+
+    assert is_equal(result, union(PROFESSORS, INSTRUCTORS))
+
+
 def test_intersection():
     """
     Test intersection operation.
@@ -71,6 +88,18 @@ def test_intersection():
               [9824, "Darkes", 38]]
 
     assert is_equal(result, intersection(GRADUATES, MANAGERS))
+
+
+def test_intersection_none():
+    """
+    Test intersection operation on identical tables.
+    """
+    result = [["ID Number", "Surname", "Age"],
+              [9297, "O'Malley", 56],
+              [7432, "O'Malley", 39],
+              [9824, "Darkes", 38]]
+
+    assert is_equal(result, intersection(PROFESSORS, INSTRUCTORS))
 
 
 def test_difference():
@@ -84,13 +113,21 @@ def test_difference():
     assert is_equal(result, difference(GRADUATES, MANAGERS))
 
 
+def test_difference_none():
+    """
+    Test difference operation on identical tables.
+    """
+    result = [['ID Number', 'Surname', 'Age']]
+
+    assert is_equal(result, difference(PROFESSORS, INSTRUCTORS))
 #####################
 # REMOVE DUPLICATES##
 #####################
 
+
 def test_remove_duplicates():
     """
-    Test duplicates are removal.
+    Test duplicates are removed.
     """
     result_union = [[7274, "Robinson", 37],
                     [7432, "O'Malley", 39],
@@ -246,10 +283,3 @@ def test_difference_negative():
         assert True
     else:
         assert False
-
-
-
-
-
-
-
